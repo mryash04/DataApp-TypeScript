@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import "./App.css";
 import UserData from "./UserData";
+import AddUserData from "./AddUserData";
 
 interface tableType{
     border : string;
@@ -12,14 +13,14 @@ const table: any = {
     borderCollapse : "collapse"
 }
 
-const User: React.FC = () =>{
+export interface myType{
+    name : string;
+    age : number;
+    job : string;
+    language? : string
+}
 
-    interface myType{
-            name : string;
-            age : number;
-            job : string;
-            language? : string
-    }
+const User: React.FC = () =>{
 
     const objData: myType[] = [
         {
@@ -70,6 +71,7 @@ const User: React.FC = () =>{
                 </tr>
                 <UserData person={person} />
             </table>
+            <AddUserData person={person} setUser={setPerson} />
         </div>
     )
 };

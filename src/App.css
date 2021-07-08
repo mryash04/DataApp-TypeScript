@@ -14,3 +14,26 @@ table, tbody, th, td{
     padding:10px;
     text-align:center;
 }
+
+input{
+    width:300px;
+    padding:10px;
+    margin:5px auto;
+    border:1px solid #000000;
+}
+
+button{
+    width:325px;
+    padding:10px;
+    margin:5px auto;
+    display:flex;
+    border:1px solid #000000;
+    text-align:center;
+    cursor:pointer;
+    border:none;
+    background-color:#008000;
+    color:#ffffff;
+    outline:none;
+    border-radius:5px;
+    font-size:20px;
+}
