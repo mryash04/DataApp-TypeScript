@@ -23,10 +23,7 @@ const App: React.FC<userData> = (props) : any =>{
   console.log(props);
   return(
     <div className="App">
-      <h2>This is from {props["name"]} side</h2>
-      <h2>The id is {props["id"]}</h2>
-      {number} <br />
-      <button onClick={changeNumber}>Submit</button>
+      <h2 style={{textAlign:"center"}}>User Data Details</h2>
       <User />
     </div>
   )

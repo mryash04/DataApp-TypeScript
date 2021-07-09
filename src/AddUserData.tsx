@@ -51,29 +51,35 @@ const AddUserData: React.FC<Iprops> = ({person, setUser}) =>{
 
     const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>): void =>{
         event.preventDefault();
-        console.log("This is username", name);
-        const newEntry = {name, age, job, language};
-        console.log("This is newEntry data", newEntry);
-        setAllEntry([...allEntry, newEntry]);
-        console.log("This is allEntry data", allEntry);
-        setUser([...person])
-        setUserData({
-            name : "",
-            age : "",
-            job : "",
-            language : ""
-        });
+        if(!name || !age || !job || !language){
+            alert("Submit the details properly");
+        }
+        else{
+            console.log("This is username", name);
+            const newEntry = {name, age, job, language};
+            console.log("This is newEntry data", newEntry);
+            setAllEntry([...allEntry, newEntry]);
+            console.log("This is allEntry data", allEntry);
+            setUser([...person, {name, age: parseInt(userData.age), job, language}])
+            setUserData({
+                name : "",
+                age : "",
+                job : "",
+                language : ""
+            });
+        }
     };
 
     return(
         <div className="add-user-data" style={{marginTop:"20px"}}>
+            <h2 style={{textAlign:"center"}}>Add New Users</h2>
             <form style={{display:"flex", flexDirection:"column"}}>
                 <input type="text" onChange={handleChange} placeholder="name" name="name" value={userData.name} />
-                <input type="text" onChange={handleChange} placeholder="age" name="age" value={userData.age} />
+                <input type="number" onChange={handleChange} placeholder="age" name="age" value={userData.age} />
                 <input type="text" onChange={handleChange} placeholder="job" name="job" value={userData.job} />
                 <input type="text" onChange={handleChange} placeholder="language" name="language" value={userData.language} />
             </form>
-            <button onClick={handleSubmit}>AddUser Data</button>
+            <button onClick={handleSubmit}>Add User</button>
         </div>
     )
 };
